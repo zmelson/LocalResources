@@ -2,6 +2,10 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+#Set up third party orbs
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.1.1
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -17,6 +21,12 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World! This is a test CircleCI works!"
+  build:
+    docker:
+      - image: 'node:latest'
+    steps:
+      - checkout
+      - sonarcloud/scan
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -24,3 +34,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+  main:
+    jobs:
+      - build:
+          context: sonarcloud
