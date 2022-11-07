@@ -1,6 +1,6 @@
 import React from "react";
 //use below to access files in images folder
-//import testImage from './images/logoPlaceholder.png';
+import testImage from './images/logoPlaceholder.png';
 //use for nicer css formatting
 import "bootstrap/dist/css/bootstrap.css";
 
