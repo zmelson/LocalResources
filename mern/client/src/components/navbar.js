@@ -11,9 +11,9 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
  return (
    <div>
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
        <NavLink className="navbar-brand" to="/">
-       <img style={{"width" : 50 + '%'}} src={logo}></img>
+        <img style={{"width" : 30 + '%'}} src={logo}></img>
        </NavLink>
        <button
          className="navbar-toggler"
