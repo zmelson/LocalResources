@@ -13,7 +13,7 @@ export default function Navbar() {
    <div>
      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
        <NavLink className="navbar-brand" to="/">
-        <img style={{"width" : 30 + '%'}} src={logo}></img>
+        <img style={{"width" : 50 + '%'}} src={logo}></img>
        </NavLink>
        <button
          className="navbar-toggler"
