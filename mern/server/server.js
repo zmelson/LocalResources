@@ -36,17 +36,19 @@ app.use(session({
 }));app.use(passport.initialize());
 app.use(passport.session());
 
-try {
+async function mongooseConnect() {
+  try {
   // Connect to the MongoDB cluster
-   mongoose.connect(
+   await mongoose.connect(
     process.env.ATLAS_URI,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log("Mongoose is connected")
   );
-
-} catch (e) {
-  console.log("Could not connect Mongoose at " + process.env.ATLAS_URI);
+  } catch (e) {
+    console.log("Could not connect Mongoose at " + process.env.ATLAS_URI);
+  }
 }
+mongooseConnect();
 
 const userSchema = new mongoose.Schema ({
     username: String,
