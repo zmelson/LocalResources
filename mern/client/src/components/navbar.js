@@ -11,9 +11,9 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
  return (
    <div>
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
        <NavLink className="navbar-brand" to="/">
-       <img style={{"width" : 50 + '%'}} src={logo}></img>
+        <img style={{"width" : 50 + '%'}} src={logo}></img>
        </NavLink>
        <button
          className="navbar-toggler"
@@ -30,8 +30,8 @@ export default function Navbar() {
        <div className="collapse navbar-collapse" id="navbarSupportedContent">
          <ul className="navbar-nav ml-auto">
            <li className="nav-item">
-             <NavLink className="nav-link" to="/create">
-               Table View
+             <NavLink className="nav-link" to="/">
+               <h2>Table View</h2>
              </NavLink>
            </li>
          </ul>
@@ -40,8 +40,8 @@ export default function Navbar() {
        <div className="collapse navbar-collapse" id="navbarSupportedContent">
          <ul className="navbar-nav ml-auto">
            <li className="nav-item">
-             <NavLink className="nav-link" to="/create">
-               Map View
+             <NavLink className="nav-link" to="/map_view">
+              <h2>Map View</h2>
              </NavLink>
            </li>
          </ul>
@@ -51,7 +51,7 @@ export default function Navbar() {
          <ul className="navbar-nav ml-auto">
            <li className="nav-item">
              <NavLink className="nav-link" to="/create">
-               Contribute Resource
+               <h2>Contribute Resource</h2>
              </NavLink>
            </li>
          </ul>
@@ -61,7 +61,7 @@ export default function Navbar() {
          <ul className="navbar-nav ml-auto">
            <li className="nav-item">
              <NavLink className="nav-link" to="/login">
-               Login
+               <h2>Login</h2>
              </NavLink>
            </li>
          </ul>
