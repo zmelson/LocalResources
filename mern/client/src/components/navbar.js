@@ -79,7 +79,7 @@ export default function Navbar() {
          <ul className="navbar-nav ml-auto">
            <li className="nav-item">
              <NavLink className="nav-link" to="/login">
-               <h2>Login</h2>
+               <h2>{loginDisplay()}</h2>
              </NavLink>
            </li>
          </ul>
