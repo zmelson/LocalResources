@@ -8,7 +8,9 @@ import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
-import Login from "./components/testComponent";
+import TestComponent from "./components/testComponent";
+import MapView from "./components/mapview";
+
  
 const App = () => {
  return (
@@ -18,7 +20,8 @@ const App = () => {
        <Route exact path="/" element={<RecordList />} />
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/create" element={<Create />} />
-       <Route path="/login" element={<Login />}/>
+       <Route path="/login" element={<TestComponent />}/>
+       <Route path="/map_view" element={<MapView />}/>
      </Routes>
    </div>
  );
