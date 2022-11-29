@@ -3,10 +3,11 @@ import { useParams, useNavigate } from "react-router";
  
 export default function Edit() {
  const [form, setForm] = useState({
-   name: "",
-   position: "",
-   level: "",
-   records: [],
+   Service_Provider: "",
+   Location: "",
+   Contact_Information: "",
+   Hours: "",
+   Category: "",
  });
  const params = useParams();
  const navigate = useNavigate();
@@ -47,9 +48,11 @@ export default function Edit() {
  async function onSubmit(e) {
    e.preventDefault();
    const editedPerson = {
-     name: form.name,
-     position: form.position,
-     level: form.level,
+     Service_Provider: form.Service_Provider,
+     Location: form.Location,
+     Contact_Information: form.Contact_Information,
+     Hours: form.Hours,
+     Category: form.Category,
    };
  
    // This will send a post request to update the data in the database.
@@ -70,62 +73,54 @@ export default function Edit() {
      <h3>Update Record</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
-         <label htmlFor="name">Name: </label>
+         <label htmlFor="Service_Provider">Service_Provider: </label>
          <input
            type="text"
            className="form-control"
-           id="name"
-           value={form.name}
-           onChange={(e) => updateForm({ name: e.target.value })}
+           id="Service_Provider"
+           value={form.Service_Provider}
+           onChange={(e) => updateForm({ Service_Provider: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Position: </label>
+         <label htmlFor="Location">Location: </label>
          <input
            type="text"
            className="form-control"
-           id="position"
-           value={form.position}
-           onChange={(e) => updateForm({ position: e.target.value })}
+           id="Location"
+           value={form.Location}
+           onChange={(e) => updateForm({ Location: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionIntern"
-             value="Intern"
-             checked={form.level === "Intern"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionIntern" className="form-check-label">Intern</label>
-         </div>
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionJunior"
-             value="Junior"
-             checked={form.level === "Junior"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionJunior" className="form-check-label">Junior</label>
-         </div>
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionSenior"
-             value="Senior"
-             checked={form.level === "Senior"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionSenior" className="form-check-label">Senior</label>
+         <label htmlFor="Contact Information">Contact_Information: </label>
+         <input
+             type="text"
+             className="form-control"
+             id="Contact_Information"
+             value={form.Contact_Information}
+             onChange={(e) => updateForm({ Contact_Information: e.target.value })}
+         />
        </div>
+       <div className="form-group">
+         <label htmlFor="Hours">Hours: </label>
+         <input
+             type="text"
+             className="form-control"
+             id="Hours"
+             value={form.Hours}
+             onChange={(e) => updateForm({ Hours: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+         <label htmlFor="Category">Category: </label>
+         <input
+             type="text"
+             className="form-control"
+             id="Category"
+             value={form.Category}
+             onChange={(e) => updateForm({ Category: e.target.value })}
+         />
        </div>
        <br />
  
