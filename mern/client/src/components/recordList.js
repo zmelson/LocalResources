@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
- 
+
+const urlParams = new URLSearchParams(window.location.search);
 const Record = (props) => (
  <tr>
    <td>{props.record.Service_Provider}</td>
@@ -12,7 +13,6 @@ const Record = (props) => (
      <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-        const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('id')) {
           props.deleteRecord(props.record._id);
         }
