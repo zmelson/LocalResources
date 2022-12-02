@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
  
 const Record = (props) => (
  <tr>
@@ -12,7 +12,11 @@ const Record = (props) => (
      <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-         props.deleteRecord(props.record._id);
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('id')) {
+          props.deleteRecord(props.record._id);
+        }
+        else window.alert("Please login to delete resource!");
        }}
      >
        Delete
