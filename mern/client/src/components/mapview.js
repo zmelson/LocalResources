@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 export default function MapView() {
  return (
    <div>
-     <h4>I'm da map</h4>
+     <h4>Under construction</h4>
    </div>
  );
 }
