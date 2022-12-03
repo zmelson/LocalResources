@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
- 
+const urlParams = new URLSearchParams(window.location.search);
+function editLink(record) {
+  if (urlParams.get('id')) {
+    return `/edit/${record}`;
+  }
+  else return "/login";
+}
 const Record = (props) => (
  <tr>
    <td>{props.record.Service_Provider}</td>
@@ -10,10 +16,13 @@ const Record = (props) => (
    <td>{props.record.Hours}</td>
    <td>{props.record.Category}</td>
    <td>
-     <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
+     <Link className="btn btn-link" to={editLink(props.record._id)}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-         props.deleteRecord(props.record._id);
+        if (urlParams.get('id')) {
+          props.deleteRecord(props.record._id);
+        }
+        else window.alert("Please login to delete resource!");
        }}
      >
        Delete
