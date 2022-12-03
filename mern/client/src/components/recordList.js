@@ -27,6 +27,7 @@ export default function RecordList() {
  const [form, setForm] = useState({
   filter: "",
 });
+
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
@@ -38,14 +39,17 @@ export default function RecordList() {
        return;
      }
  
-     const records = await response.json();
+     var records = await response.json();
+     setRecords(records);
+     //delete unwanted lines
+     records = records.filter((row) => row.Category.includes(form.filter));
      setRecords(records);
    }
  
    getRecords();
  
    return;
- }, [records.length]);
+ }, [records.length, form.filter]);
  
  // This method will delete a record
  async function deleteRecord(id) {
@@ -57,18 +61,18 @@ export default function RecordList() {
    setRecords(newRecords);
  }
  
- // This method will map out the records on the table
  function recordList() {
-   return records.map((record) => {
-     return (
-       <Record
-         record={record}
-         deleteRecord={() => deleteRecord(record._id)}
-         key={record._id}
-       />
-     );
-   });
- }
+  return records.map((record) => {
+    return (
+      <Record
+        record={record}
+        deleteRecord={() => deleteRecord(record._id)}
+        key={record._id}
+      />
+    );
+  });
+}
+
  async function onSubmit(e) {
   e.preventDefault();
   const givenFilter = {
