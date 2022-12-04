@@ -6,6 +6,7 @@ import loginButton from './images/loginButton.PNG';
 export default function Login() {
  return (
    <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '40vh', padding:'20px', marginRight:'80px',}}>
+    <h3>Please login to make changes to the database.</h3>
      <form action="http://localhost:5000/auth/google">
         <button type="submit" className="google-button">
           <span className="google-button__icon">
