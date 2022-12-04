@@ -107,7 +107,8 @@ async function handleOAuth2(req, res) {
   const tokenJson = await tokenResponse.json();
   const userInfo = await getUserInfo(tokenJson.access_token);
 
-  res.redirect(`http://localhost:3000?${Object.keys(userInfo).map(key => `${key}=${encodeURIComponent(userInfo[key])}`).join('&')}`);
+  const urlPart = `${key}=${encodeURIComponent(userInfo[key])}`;
+  res.redirect(`http://localhost:3000?${Object.keys(userInfo).map(key => {urlPart}).join('&')}`);
 }
 
 app.get("/logout", function(req, res){

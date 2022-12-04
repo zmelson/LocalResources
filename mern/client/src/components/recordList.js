@@ -48,7 +48,7 @@ export default function RecordList() {
        return;
      }
  
-     var records = await response.json();
+     let records = await response.json();
      setRecords(records);
      //delete unwanted lines
      records = records.filter((row) => row.Category.includes(form.filter));
@@ -84,9 +84,6 @@ export default function RecordList() {
 
  async function onSubmit(e) {
   e.preventDefault();
-  const givenFilter = {
-    filter: form.filter
-  };
 }
   function updateForm(value) {
     return setForm((prev) => {
@@ -97,7 +94,7 @@ export default function RecordList() {
  // This following section will display the table with the records of individuals.
  return (
    <div>
-     <h3>Record List</h3>
+     <h3>Resources in Gainesville. Select category to filter results.</h3>
      <h6>Category Filter</h6>
       <form onSubmit={onSubmit}>
       <div className="form-group">

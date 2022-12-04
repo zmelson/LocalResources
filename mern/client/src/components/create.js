@@ -34,7 +34,6 @@ export default function Create() {
     })
         .catch(error => {
           window.alert(error);
-          return;
         });
 
     setForm({ Service_Provider: "", Location: "", Contact_Information: "", Hours: "", Category: "" });

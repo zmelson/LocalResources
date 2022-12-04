@@ -35,7 +35,6 @@ export default function Edit() {
 
     fetchData();
 
-    return;
   }, [params.id, navigate]);
 
   // These methods will update the state properties.
