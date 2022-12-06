@@ -15,3 +15,14 @@ To tackle this problem, our group created Local Resources! Local Resources is a 
 
 ### Website Contribute Resource
 ![LocalResources Contribute Resource](https://user-images.githubusercontent.com/56763637/205850530-741d6a90-2851-4045-8f1d-55317c80e0e6.JPG)
+
+Installation Instructions
+Our end goal of the project is to host the web app online, where users will simply need to navigate to the appropriate URL to run the app. Since this is still in the proof-of-concept stage, however, the following is needed to run the application locally:
+1. Retrieve the codebase from GitHub
+2. Install Node.js and configure the PATH variable per website’s installation instructions
+3. In a terminal, navigate to the mern/server directory of the project, and run ‘npm install’ to install packages listed in the project’s JSON files
+Once packages are installed, run ‘node server.js’ to start the local server
+  3a.If you receive error messages of the form “Could not find module <package name>”, run ‘npm install <package name>’ and then ‘node server.js’ again
+4. Open a second terminal and navigate to the mern/client directory
+5. Run ‘npm start’ to open the web app in your default browser
+  5a.Depending on your machine configuration, you may receive a ‘bad option’ error. If you do, navigate to the mern/client/package.json file and remove the ‘--openssl-legacy-provider’ tag in line 17. Then save the file and try again.
